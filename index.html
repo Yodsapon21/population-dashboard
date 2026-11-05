@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>แดชบอร์ดประชากร พ.ศ. 2559–2568</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f8fc;--cd:#fff;--bd:#e7ebf2;--fg:#0f1d33;--mu:#667085;--tr:#eef2f8;--sel:#e8f2fd;--ac:#0b74e5;--ln:#0b74e5;--m:#2f97e8;--w:#e8508a;--hd:#0f1d33;--c0:#0b74e5;--c1:#64748b;--c2:#0f2a55;--c3:#7a5af8;--sh:0 8px 28px rgba(20,40,80,.08);--wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 900' preserveAspectRatio='none'%3E%3Cpath d='M0 250C300 190 520 370 820 320S1250 150 1440 220V900H0Z' fill='%23eaeff8'/%3E%3Cpath d='M0 650C250 570 480 710 760 700S1240 570 1440 610V900H0Z' fill='%23e6ecf7'/%3E%3C/svg%3E");color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 'Noto Sans Thai','Sarabun',system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#fff;z-index:10}
+
+/* ===== ฉากเปิด: แผนที่เลื่อน ===== */
+#intro{color:var(--fg)}
+#intro::before{content:"";position:fixed;inset:0;background:var(--wave) center/100% 100% no-repeat,#f7f9fd}
+#c{position:fixed;inset:0;width:100%;height:100%;display:block;filter:drop-shadow(0 16px 16px rgba(40,70,120,.22))}
+#sp{height:500vh}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;z-index:5;background:var(--ac)}
+#panel{position:fixed;z-index:3;left:28px;bottom:calc(28px + env(safe-area-inset-bottom,0px));width:min(520px,calc(100% - 56px));padding:20px 26px 18px;background:#fff;border:1px solid var(--bd);border-radius:20px;box-shadow:0 14px 44px rgba(20,40,80,.14);transition:opacity .25s,transform .25s}
+#panel::before{content:"";position:absolute;left:0;top:24px;width:5px;height:104px;border-radius:0 4px 4px 0;background:var(--ac)}
+#panel.sw{opacity:0;transform:translateY(8px)}
+#k{display:block;color:var(--ac);font-size:13px;font-weight:700}
+#panel h1{margin:2px 0 6px;font-size:clamp(30px,4.4vw,46px);line-height:1.15;font-weight:800}
+#d{margin:0 0 14px;padding-bottom:14px;border-bottom:1px solid var(--bd);color:#475467;font-size:14px;line-height:1.6}
+#kp{display:flex;gap:22px;flex-wrap:wrap}
+#kp div+div{padding-left:22px;border-left:1px solid var(--bd)}
+#kp b{display:block;font-size:30px;line-height:1.2;font-weight:800}
+#kp div:first-child b{color:var(--ac)}
+#kp span{font-size:13px;font-weight:600;color:#344054}
+#s{margin-top:12px;font-size:11px;line-height:1.5;color:#98a2b3}
+#zc{position:fixed;z-index:4;right:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px}
+#zc button{width:48px;height:48px;border-radius:50%;border:0;background:#fff;color:#344054;font-family:inherit;font-size:17px;font-weight:700;line-height:1;display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 20px rgba(20,40,80,.16);transition:background .2s,color .2s}
+#zc button.on{background:var(--ac);color:#fff;box-shadow:0 6px 20px rgba(11,116,229,.4)}
+#zc button:not(.on):hover{background:#f1f7ff}
+#zc button:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+#hint{position:fixed;z-index:3;right:24px;bottom:calc(28px + env(safe-area-inset-bottom,0px));padding:9px 18px;border-radius:999px;background:#fff;color:var(--ac);font-size:13px;font-weight:700;box-shadow:0 6px 20px rgba(20,40,80,.14);transition:opacity .4s;animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(5px)}}
+.lb{position:fixed;left:0;top:0;z-index:2;text-align:center;white-space:nowrap;pointer-events:none;font-size:13px;font-weight:700;color:var(--fg);text-shadow:0 0 5px #fff,0 0 2px #fff;will-change:transform}
+.lb em{display:block;font-style:normal;font-weight:700;font-size:.92em;color:var(--mu)}
+.lb.big{font-size:26px;font-weight:800}
+.lb.big em{font-size:17px;font-weight:800;color:var(--ac)}
+.lb.hot{font-weight:800}
+.lb.sea{color:#8a96ab;font-style:italic;font-weight:400}
+.lb i{display:block;width:7px;height:7px;margin:3px auto 0;border-radius:50%;background:#98a2b3;box-shadow:0 0 0 2px #fff}
+.lb.hot i{background:var(--ac)}
+
+/* ===== แดชบอร์ด ===== */
+#dash{position:relative;z-index:6;min-height:100vh;background:var(--wave) center top/100% 100vh no-repeat,var(--bg)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;padding:14px 28px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--bd)}
+.top small{display:block;color:var(--ac);font-size:12px;font-weight:700}
+.top h1{margin:0;font-size:22px;font-weight:800}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 24px 30px}
+.ys{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.ys label{font-size:13px;font-weight:600;color:var(--mu)}
+#ysel{appearance:none;-webkit-appearance:none;font:inherit;font-size:15px;font-weight:700;color:var(--fg);min-width:160px;padding:9px 40px 9px 16px;border:1px solid var(--bd);border-radius:12px;box-shadow:0 1px 2px rgba(20,40,80,.05);cursor:pointer;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230b74e5' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center}
+#ysel:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.yb{font:inherit;font-size:13px;padding:6px 14px;border-radius:999px;border:1px solid var(--bd);background:#fff;color:var(--fg);cursor:pointer}
+.yb.on{background:var(--ac);border-color:var(--ac);color:#fff;font-weight:600}
+.yb:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.kg{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.cd,.kc{background:var(--cd);border:1px solid var(--bd);border-radius:16px;box-shadow:var(--sh)}
+.kc{position:relative;padding:16px 18px 16px 22px}
+.kc::before{content:"";position:absolute;left:0;top:18px;width:4px;height:34px;border-radius:0 4px 4px 0;background:var(--c)}
+.kc span,.kc em,.cd p,.ft{font-size:12px;color:var(--mu)}
+.kc em{font-style:normal}
+.kc b{display:block;font-size:28px;line-height:1.25;font-weight:800}
+.kc:first-child b{color:var(--ac)}
+.g2{display:grid;grid-template-columns:1.35fr 1fr;gap:12px;margin-top:12px}
+.g2.e{grid-template-columns:1fr 1fr}
+.cd{padding:18px 20px;min-width:0}
+.mt{margin-top:12px}
+.cd h2{margin:0;font-size:15px}
+.cd p{margin:2px 0 12px}
+.bh,.br{display:grid;grid-template-columns:1fr 52px 1fr;gap:8px;align-items:center;padding:2px 6px}
+.bh{font-size:12px;font-weight:600}
+.bh span:first-child{text-align:right;color:var(--m)}
+.bh span:last-child{color:var(--w)}
+.br span{text-align:center;font-size:12px}
+.br .l,.br .r{display:flex;align-items:center;gap:6px}
+.br .l{justify-content:flex-end}
+.br i{display:block;height:11px;border-radius:3px}
+.br .l i{background:var(--m)}
+.br .r i{background:var(--w)}
+.br b,.sr b{font-size:11px;font-weight:600}
+.sr,.ax{display:grid;grid-template-columns:52px 1fr 40px;align-items:center;gap:8px;padding:2px 6px;font-size:12px}
+.sr b{text-align:right}
+.tk{position:relative;height:11px;background:var(--tr);border-radius:3px}
+.tk::before{content:"";position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--mu)}
+.tk i{position:absolute;top:0;bottom:0;border-radius:3px}
+.ax{font-size:11px;color:var(--mu)}
+.ax div{display:flex;justify-content:space-between}
+.ax b{color:var(--fg)}
+svg{width:100%;height:auto;display:block}
+.tx{fill:var(--mu);font-size:11px}
+.gr{stroke:var(--bd)}
+.ln{fill:none;stroke:var(--ln);stroke-width:2.5}
+.pt{fill:#fff;stroke:var(--ln);stroke-width:2;cursor:pointer}
+.pt.on{fill:var(--ac)}
+.bar{fill:#c5d6ee;cursor:pointer}
+.bar.on{fill:var(--ac)}
+.lg{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;margin-bottom:8px}
+.lg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px}
+.k0{background:var(--c0)}
+.k1{background:var(--c1)}
+.k2{background:var(--c2)}
+.st{display:grid;grid-template-columns:44px 1fr;gap:8px;align-items:center;padding:3px 6px;border-radius:8px;cursor:pointer}
+.st:hover{background:var(--tr)}
+.st.on{background:var(--sel)}
+.sb{display:flex;height:22px;border-radius:6px;overflow:hidden}
+.sb span{display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px}
+.ft{margin:14px 0 0;line-height:1.7}
+
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.sg{display:inline-flex;padding:3px;border-radius:999px;background:var(--tr)}
+.sg button{font:inherit;font-size:12px;font-weight:600;padding:4px 12px;border:0;border-radius:999px;background:transparent;color:var(--mu);cursor:pointer}
+.sg button.on{background:#fff;color:var(--ac);box-shadow:0 1px 4px rgba(20,40,80,.15)}
+.sg button:focus-visible{outline:2px solid var(--ac);outline-offset:1px}
+#nt.s1 .bar{fill:#bcdcf8}
+#nt.s1 .bar.on{fill:var(--m)}
+#nt.s2 .bar{fill:#f7c7da}
+#nt.s2 .bar.on{fill:var(--w)}
+@media(prefers-reduced-motion:reduce){#hint{animation:none}}
+@media(max-width:800px){.kg{grid-template-columns:repeat(2,1fr)}.g2,.g2.e{grid-template-columns:1fr}.kc b{font-size:22px}.wrap,.top{padding-left:14px;padding-right:14px}}
+@media(max-width:700px){#panel{left:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));width:calc(100% - 24px);padding:16px 18px}#panel::before{height:84px}#zc{right:10px}#zc button{width:42px;height:42px}#hint{display:none}.lb{font-size:11px}.lb.big{font-size:18px}.lb.big em{font-size:13px}}
+</style>
+</head>
+<body>
+<div id="intro">
+  <canvas id="c"></canvas>
+  <div id="bar"></div>
+  <div id="lbls"></div>
+  <div id="zc"></div>
+  <section id="panel"><small id="k"></small>
+  <h1 id="t"></h1>
+  <p id="d"></p>
+  <div id="kp"></div>
+  <div id="s"></div>
+  </section>
+  <div id="hint">เลื่อนลูกกลิ้งเมาส์ ↓</div>
+  <div id="sp"></div>
+</div>
+<div id="dash">
+<header class="top"><small>จังหวัดสุราษฎร์ธานี › ประชากรรายอายุ พ.ศ. 2559–2568</small><h1>แดชบอร์ดประชากร ณ <span id="mo"></span></h1></header>
+<main class="wrap">
+<div class="ys"><label for="ysel">เลือกปี พ.ศ.</label><select id="ysel"></select></div>
+<div class="kg" id="kg"></div>
+<div class="g2">
+<section class="cd"><h2 id="pt"></h2><p>ชายและหญิง กลุ่มอายุ 5 ปี · เลือกปีด้านบนเพื่อเปลี่ยนข้อมูล</p><div id="py"></div></section>
+<section class="cd"><h2>อัตราส่วนเพศรายกลุ่มอายุ</h2><p>ชายต่อหญิง 100 คน · แถบเต็มคือห่างจาก 100 ตั้งแต่ 50 ขึ้นไป</p><div id="sx"></div></section>
+</div>
+<div class="g2 e">
+<section class="cd"><h2>ประชากรรวมรายปี</h2><p>หน่วย: ล้านคน · แกนตั้งไม่เริ่มที่ศูนย์ · คลิกจุดเพื่อเลือกปี</p><div id="tr"></div></section>
+<section class="cd"><div class="hd"><h2>ประชากรไม่ใช่สัญชาติไทย</h2><div class="sg" id="sg" role="group" aria-label="เลือกเพศ"><button data-s="0">ทั้งหมด</button><button data-s="1">ชาย</button><button data-s="2">หญิง</button></div></div><p id="np"></p><div id="nt"></div></section>
+</div>
+<section class="cd mt"><h2>สัดส่วนกลุ่มวัยรายปี</h2><p id="ap"></p>
+<div class="lg"><span><i class="k0"></i>0–14 ปี</span><span><i class="k1"></i>15–59 ปี</span><span><i class="k2"></i>60 ปีขึ้นไป</span></div><div id="as"></div></section>
+<p class="ft" id="ft"></p>
+</main>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* population-data.js — ข้อมูลประชากรจังหวัดสุราษฎร์ธานี พ.ศ. 2559–2568 (สรุปจากไฟล์ population_dataclean_formatted.xlsx: Data_Clean + Year_Totals)
+ * province : ชื่อจังหวัดตามหัวรายงานในไฟล์ต้นฉบับ
+ * nb       : จำนวนช่องว่างในไฟล์ต้นฉบับที่เติมจากสมการในแถวเดียวกัน (Issue_Log)
+ * nf       : จำนวนค่าที่ไม่สอดคล้องกับสมการและถูกแก้ (Issue_Log)
+ * yrs, mo  : ปี พ.ศ. และเดือนของข้อมูลแต่ละปี
+ * T[i]     : ยอดรวมทางการ (Year_Totals) = [ชายไทย, หญิงไทย, ชายไม่ใช่ไทย, หญิงไม่ใช่ไทย]
+ * A[i][k]  : กลุ่มอายุ 5 ปี k=0..20 (0–4, 5–9, … 95–99, 100+) = [ชาย, หญิง, ไม่ใช่สัญชาติไทย] */
+window.POP_DATA={
+ province:"สุราษฎร์ธานี",
+ nb:18,
+ nf:5,
+ yrs:[2559,2560,2561,2562,2563,2564,2565,2566,2567,2568],
+ mo:["ธันวาคม 2559","ธันวาคม 2560","ธันวาคม 2561","ธันวาคม 2562","ธันวาคม 2563","ธันวาคม 2564","ธันวาคม 2565","ธันวาคม 2566","ธันวาคม 2567","พฤศจิกายน 2568"],
+ T:[
+  [523137,536483,2777,2309],  // 2559
+  [518680,532829,3312,2759],  // 2560
+  [520662,535715,3878,3245],  // 2561
+  [522579,537917,4113,3400],  // 2562
+  [530069,547185,4262,3444],  // 2563
+  [522815,541537,4534,3578],  // 2564
+  [522631,542326,4924,3782],  // 2565
+  [522939,543443,5419,3987],  // 2566
+  [523298,543492,5779,4097],  // 2567
+  [522691,543017,6157,4235],  // 2568
+ ],
+ A:[
+  [[37774,35534,3191],[38193,35765,370],[34824,33323,207],[36531,34615,219],[38229,37981,106],[38906,38424,39],[41016,40885,59],[42298,42814,49],[42302,43072,68],[41536,42756,90],[36335,37874,88],[28053,29769,80],[19490,21683,64],[14543,17402,66],[10067,12657,54],[8107,10532,71],[5643,8593,52],[3258,5390,67],[1190,2105,51],[453,697,41],[111,182,21]],  // 2559
+  [[36516,34404,3827],[38154,36063,583],[35654,33646,214],[35496,33756,236],[38399,37836,133],[39236,38789,53],[39914,39777,72],[42148,42440,71],[42135,43064,74],[41708,43164,126],[37470,38692,96],[29717,31767,92],[20336,22373,70],[15441,18551,75],[10483,13241,48],[8049,10456,74],[5847,8680,53],[3347,5644,60],[1304,2274,47],[507,774,39],[131,197,28]],  // 2560
+  [[35388,33455,4275],[38068,35944,962],[36640,34479,224],[34571,32894,254],[38124,37341,174],[39232,38893,77],[39236,39002,76],[42214,42343,89],[41661,42833,90],[41296,42815,126],[38648,40067,120],[31191,33260,123],[21532,23579,83],[16073,19262,96],[10836,13851,54],[8116,10580,66],[6118,8875,53],[3432,5904,52],[1461,2537,56],[526,822,41],[177,224,32]],  // 2561
+  [[33438,31877,3570],[38013,35673,1750],[37460,34991,250],[34193,32810,248],[37657,36604,212],[38685,38459,92],[39039,38632,90],[42041,42158,109],[41224,42434,125],[41501,43026,140],[39200,40391,163],[32556,34930,148],[22945,24804,123],[16808,20062,111],[11570,14676,77],[8227,10782,70],[6216,9024,58],[3599,6052,47],[1542,2839,56],[550,843,34],[228,250,40]],  // 2562
+  [[31763,30050,2758],[37924,35533,2594],[37204,35046,144],[34446,33865,223],[37061,35761,238],[38785,38183,103],[38628,38380,83],[41105,41321,144],[41229,42343,145],[41244,42882,174],[39198,40682,201],[33468,35652,176],[24522,26732,156],[17147,20162,150],[12012,15330,103],[8220,10996,70],[6012,8856,55],[3501,6118,48],[1516,2971,41],[487,877,33],[244,270,40]],  // 2563
+  [[29971,28353,1961],[36978,34785,3306],[37573,35275,219],[34820,34435,207],[36306,35468,243],[39045,38436,127],[38761,38332,115],[40364,40611,184],[41168,42314,176],[40880,42403,203],[39809,41699,274],[34463,36727,238],[26263,28538,211],[17799,20572,196],[12767,16176,145],[8307,11405,75],[6012,8826,68],[3617,6296,42],[1679,3183,44],[493,972,32],[274,309,46]],  // 2564
+  [[27935,26182,1168],[35788,33741,3976],[37355,35349,319],[35382,34248,193],[35525,35816,288],[39123,38254,197],[39093,38731,189],[39454,39534,252],[41066,41935,245],[40849,42436,256],[39892,42095,329],[35554,37507,306],[27814,30483,258],[18523,21189,232],[13502,17180,180],[8614,11862,76],[5876,8657,80],[3660,6312,47],[1702,3222,39],[524,1040,24],[324,335,52]],  // 2565
+  [[26247,24755,568],[34632,32787,4355],[37273,35188,529],[36088,34285,192],[34784,35546,332],[39098,38021,269],[39144,38766,245],[38829,38736,318],[41285,41912,339],[40437,42180,316],[39498,41769,368],[36740,38845,395],[29203,31987,343],[19693,22339,280],[14062,17895,218],[8895,12315,89],[5997,8794,83],[3799,6474,43],[1689,3346,36],[595,1104,29],[370,386,59]],  // 2566
+  [[24818,23155,625],[32790,31368,3644],[37080,34775,1028],[36869,34695,206],[34302,34560,319],[38806,37427,310],[38806,38513,273],[38752,38527,386],[41197,41826,404],[40166,41933,399],[39870,42130,414],[37193,39181,475],[30459,33652,420],[20952,23546,334],[14699,18661,258],[9546,13079,131],[6065,8938,77],[3904,6554,47],[1763,3421,36],[618,1230,30],[422,418,60]],  // 2567
+  [[23113,21531,726],[31535,30043,2922],[36905,34599,1467],[36785,34773,232],[33935,33499,312],[37891,36710,321],[38937,38326,316],[38709,38516,432],[40862,41366,506],[40416,42026,497],[40064,42392,486],[37566,39766,569],[31560,34728,501],[23080,26138,398],[15447,19497,274],[9718,13413,180],[5918,8854,80],[3715,6270,55],[1674,3293,33],[581,1098,26],[437,414,59]],  // 2568
+ ]
+};
+</script>
+<script>
+/* geo-data.js — พิกัดรูปร่างแผนที่ [ลองจิจูด, ละติจูด] แบบย่อโดยประมาณ ไม่ใช่ขอบเขตทางการ
+   SC = ภาคใต้, NC = ส่วนบนของประเทศ, TH = ทั้งประเทศ (SC+NC), P = ป้ายชื่อจังหวัดภาคใต้, SU = จังหวัดสุราษฎร์ธานี (แผ่นดินใหญ่ + เกาะสมุย พะงัน เต่า) */
+window.GEO=(()=>{
+const V=[[98.58,8.55],[98.88,8.72],[99.12,8.62],[99.16,8.36],[99.30,8.15],[99.40,7.96],[99.40,7.78],[99.10,7.70],[98.90,7.86],[98.78,7.97],[98.84,8.06],[98.88,8.13],[98.76,8.24],[98.64,8.40],[98.88,8.46],[98.96,8.28],[99.00,8.15],[99.06,8.32],[99.14,8.04],[99.20,7.94],[99.12,7.84],
+[98.99,7.43],[99.07,7.36],[99.12,7.50],[99.10,7.64],[99.02,7.62],[98.97,7.50],[98.93,7.66],[99.00,7.64],[99.01,7.73],[98.94,7.75],[98.74,7.69],[98.80,7.68],[98.80,7.78],[98.74,7.78]];
+const SC=[[98.82,10.95],[98.76,10.45],[98.60,9.98],[98.47,9.55],[98.42,9.20],[98.34,8.90],[98.24,8.62],[98.25,8.38],[98.30,8.18],[98.28,7.90],[98.31,7.77],[98.42,7.86],[98.45,8.12],[98.47,8.38],[98.52,8.50],
+...[0,13,12,11,10,9,8,7].map(i=>V[i]),
+[99.30,7.58],[99.50,7.40],[99.62,7.18],[99.78,6.95],[99.85,6.85],[100.00,6.58],[100.12,6.45],[100.33,6.66],[100.60,6.35],[100.95,6.25],[101.05,5.85],[101.15,5.65],[101.45,5.90],[101.70,6.10],[101.97,6.03],
+[102.10,6.25],[101.85,6.45],[101.45,6.72],[101.25,6.90],[100.95,7.02],[100.60,7.22],[100.40,7.80],[100.25,8.40],[100.00,8.85],[99.85,9.20],[99.40,9.22],[99.30,9.60],[99.20,10.10],[99.20,10.50],[99.35,10.80],[99.45,10.95]];
+const NC=[[99.50,11.30],[99.70,11.65],[99.85,11.90],[99.95,12.40],[100.00,12.80],[100.08,13.25],[100.15,13.45],[100.50,13.50],[100.80,13.45],[100.95,13.20],[100.90,12.85],[101.10,12.65],[101.60,12.65],[102.05,12.50],[102.40,12.15],[102.80,11.80],[102.92,11.62],
+[102.85,11.98],[102.55,12.30],[102.35,12.60],[102.30,13.00],[102.50,13.60],[102.90,14.10],[103.60,14.35],[104.70,14.35],[105.45,14.35],[105.62,15.25],[105.20,16.00],[104.75,16.55],[104.80,17.40],[104.40,17.95],[103.60,18.35],[102.75,17.90],[101.70,17.90],[101.15,18.20],[100.95,18.95],[100.55,19.60],[100.40,20.27],[100.08,20.35],[99.88,20.43],
+[99.40,20.10],[98.95,19.75],[98.55,19.00],[97.95,18.50],[97.65,18.00],[98.10,17.30],[98.57,16.72],[98.65,16.30],[98.50,15.50],[98.40,15.00],[98.55,14.30],[99.15,13.10],[99.35,12.35],[99.35,11.80],[99.10,11.40]];
+const TH=[...SC,...NC];
+const P=[['ชุมพร',99.18,10.49],['ระนอง',98.63,9.96],['สุราษฎร์ธานี',99.32,9.14],['พังงา',98.53,8.45],['ภูเก็ต',98.39,7.88],['นครศรีธรรมราช',99.96,8.43],['ตรัง',99.61,7.56],['พัทลุง',100.08,7.62],['สงขลา',100.60,7.19],['สตูล',100.07,6.62],['ปัตตานี',101.25,6.87],['ยะลา',101.28,6.54],['นราธิวาส',101.82,6.43]];
+
+/* ขอบเขตจังหวัดสุราษฎร์ธานี: แบบย่อโดยประมาณ (แผ่นดินใหญ่ + เกาะสมุย พะงัน เต่า) */
+const SU=[[[98.86,9.62],[99.10,9.84],[99.27,9.82],[99.30,9.60],[99.40,9.22],[99.62,9.20],[99.85,9.20],[99.78,8.98],[99.55,8.85],[99.36,8.70],[99.12,8.62],[98.88,8.72],[98.70,8.95],[98.62,9.30]],[[99.93,9.40],[100.05,9.42],[100.07,9.55],[99.95,9.58]],[[99.96,9.70],[100.08,9.68],[100.10,9.82],[99.98,9.84]],[[99.80,10.06],[99.88,10.06],[99.88,10.14],[99.80,10.14]]];
+return{SC,NC,TH,P,SU};
+})();
+</script>
+<script>
+/* app.js — (1) แดชบอร์ดประชากร (2) ฉากเลื่อนแผนที่ 3 มิติ ประเทศ → ภาค → จังหวัด
+   โหลดหลัง three.js, population-data.js และ geo-data.js */
+(()=>{
+const D=window.POP_DATA,N=D.yrs.length,PV=D.province;
+const $=s=>document.querySelector(s),f=n=>Math.round(n).toLocaleString('th-TH'),p1=(a,b)=>(a/b*100).toFixed(1);
+const GL=[...Array(20)].map((_,k)=>k*5+'–'+(k*5+4)).concat('100+');
+let y=N-1,sex=0;
+const tt=i=>{const t=D.T[i],m=t[0]+t[2],w=t[1]+t[3];return{m,w,n:t[2]+t[3],p:m+w}};
+const sum=i=>D.A[i].reduce((r,g)=>r+g[0]+g[1],0);
+const ag=i=>{const a=D.A[i],p=sum(i),s=(x,z)=>a.slice(x,z).reduce((r,g)=>r+g[0]+g[1],0);return[s(0,3),s(3,12),s(12,21)].map(v=>v/p*100)};
+const MX=Math.max(...D.A.flat().flatMap(g=>[g[0],g[1]])),lx=i=>44+i*480/(N-1);
+$('#ysel').innerHTML=D.yrs.map((v,i)=>`<option value="${i}">พ.ศ. ${v}</option>`).join('');
+$('#ysel').onchange=e=>{y=+e.target.value;render()};
+$('#sg').onclick=e=>{const b=e.target.closest('button');if(b){sex=+b.dataset.s;render()}};
+function render(){
+const t=tt(y),q=y?tt(y-1):0,a=D.A[y],yr=D.yrs[y],kc=(h,v,s,c)=>`<div class="kc" style="--c:${c}"><span>${h}</span><b>${v}</b><em>${s}</em></div>`;
+$('#ysel').value=y;document.querySelectorAll('#sg button').forEach((b,i)=>{b.classList.toggle('on',i===sex);b.setAttribute('aria-pressed',i===sex)});$('#nt').className='s'+sex;
+$('#mo').textContent=D.mo[y];
+$('#kg').innerHTML=kc('ประชากรรวม (คน)',f(t.p),q?`${t.p>=q.p?'เพิ่มขึ้น':'ลดลง'} ${f(Math.abs(t.p-q.p))} คนจากปี ${D.yrs[y-1]}`:'ปีแรกของชุดข้อมูล','var(--hd)')
++kc('ชาย (คน)',f(t.m),p1(t.m,t.p)+'% ของประชากร','var(--m)')
++kc('หญิง (คน)',f(t.w),p1(t.w,t.p)+'% ของประชากร','var(--w)')
++kc('อัตราส่วนเพศ (ชายต่อหญิง 100 คน)',(t.m/t.w*100).toFixed(1),(t.w>t.m?'หญิงมากกว่าชาย ':'ชายมากกว่าหญิง ')+f(Math.abs(t.w-t.m))+' คน','var(--c3)');
+$('#pt').textContent='โครงสร้างประชากรรายกลุ่มอายุ ปี '+yr;
+const rv=[...a.keys()].reverse();
+$('#py').innerHTML='<div class="bh"><span>◀ ชาย</span><span></span><span>หญิง ▶</span></div>'+rv.map(k=>{const[m,w]=a[k],W=v=>`calc((100% - 58px)*${(v/MX).toFixed(3)})`;return `<div class="br"><div class="l"><b>${f(m)}</b><i style="width:${W(m)}"></i></div><span>${GL[k]}</span><div class="r"><i style="width:${W(w)}"></i><b>${f(w)}</b></div></div>`}).join('');
+$('#sx').innerHTML=rv.map(k=>{const v=a[k][0]/a[k][1]*100,d=Math.min(50,Math.abs(v-100));return `<div class="sr"><span>${GL[k]}</span><div class="tk"><i style="${v>=100?'left':'right'}:50%;width:${d}%;background:${v>=100?'var(--m)':'var(--w)'}"></i></div><b>${v.toFixed(0)}</b></div>`}).join('')+'<div class="ax"><span></span><div><span>← หญิงมากกว่า</span><b>100</b><span>ชายมากกว่า →</span></div><span></span></div>';
+const ps=D.yrs.map((_,i)=>tt(i).p),lo=Math.floor(Math.min(...ps)/1e4)*1e4,hi=Math.ceil(Math.max(...ps)/1e4)*1e4,ly=v=>170-(v-lo)/(hi-lo)*140;
+$('#tr').innerHTML='<svg viewBox="0 0 568 205" role="img" aria-label="ประชากรรวมรายปี">'+[lo,(lo+hi)/2,hi].map(v=>`<line class="gr" x1="40" x2="528" y1="${ly(v)}" y2="${ly(v)}"/><text class="tx" x="34" y="${ly(v)+4}" text-anchor="end">${(v/1e6).toFixed(2)}</text>`).join('')
++`<polyline class="ln" points="${ps.map((v,i)=>lx(i)+','+ly(v)).join(' ')}"/>`
++ps.map((v,i)=>`<circle class="pt${i===y?' on':''}" data-y="${i}" cx="${lx(i)}" cy="${ly(v)}" r="${i===y?7:5}"/><text class="tx" x="${lx(i)}" y="195" text-anchor="middle">${D.yrs[i]}</text>`).join('')
++`<text class="tx" style="font-weight:600" x="${lx(y)}" y="${ly(ps[y])-12}" text-anchor="middle">${f(ps[y])}</text></svg>`;
+const SL=['ทั้งหมด','ชาย','หญิง'],ns=D.yrs.map((_,i)=>sex?D.T[i][1+sex]:tt(i).n),mN=Math.max(...ns),bs=sex===0?t.p:sex===1?t.m:t.w;
+$('#np').textContent=`ปี ${yr}${sex?' ('+SL[sex]+')':''}: ${f(ns[y])} คน คิดเป็น ${p1(ns[y],bs)}% ของประชากร${sex?SL[sex]:''} · คลิกแท่งเพื่อเลือกปี`;
+$('#nt').innerHTML='<svg viewBox="0 0 568 205" role="img" aria-label="ประชากรไม่ใช่สัญชาติไทยรายปี"><line class="gr" x1="40" x2="528" y1="170" y2="170"/>'+ns.map((v,i)=>{const h=v/mN*125;return `<rect class="bar${i===y?' on':''}" data-y="${i}" x="${lx(i)-15}" y="${170-h}" width="30" height="${h}" rx="2"/><text class="tx" x="${lx(i)}" y="${165-h}" text-anchor="middle">${f(v)}</text><text class="tx" x="${lx(i)}" y="190" text-anchor="middle">${D.yrs[i]}</text>`}).join('')+'</svg>';
+const CL=['var(--c0)','var(--c1)','var(--c2)'];
+$('#as').innerHTML=D.yrs.map((v,i)=>`<div class="st${i===y?' on':''}" data-y="${i}"><span>${v}</span><div class="sb">${ag(i).map((x,j)=>`<span style="width:${x}%;background:${CL[j]}">${x.toFixed(1)}%</span>`).join('')}</div></div>`).join('');
+$('#ap').textContent=`สัดส่วนอายุ 60 ปีขึ้นไป ${ag(0)[2].toFixed(1)}% ในปี ${D.yrs[0]} และ ${ag(N-1)[2].toFixed(1)}% ในปี ${D.yrs[N-1]} · คลิกแถวเพื่อเลือกปี`;
+const gp=D.yrs.map((v,i)=>[v,tt(i).p-sum(i)]).filter(x=>x[1]);
+$('#ft').textContent=`ที่มา: ไฟล์ข้อมูลประชากรรายอายุ พ.ศ. 2559–2568 (Data_Clean, Year_Totals) · หัวรายงานต้นฉบับระบุจังหวัด${PV} · ตัวเลขรวมใช้ยอดรวมทางการ (Year_Totals) ส่วนกราฟรายอายุรวมจากรายแถว · แก้ด้วยสมการในแถวเดียวกัน ${D.nb+D.nf} ช่อง (เติมช่องว่าง ${D.nb} ช่อง แก้ค่าที่ไม่สอดคล้อง ${D.nf} ช่อง)`+(gp.length?` · ปี ${gp.map(x=>x[0]+' (ต่างกัน '+f(x[1])+' คน)').join(', ')} ผลรวมรายอายุต่ำกว่ายอดรวมทางการ (Data_Clean ตัดแถวซ้ำออก)`:'')+' · ปี 2568 เป็นข้อมูล ณ พฤศจิกายน';
+}
+document.addEventListener('click',e=>{const r=e.target.closest('[data-y]');if(r){y=+r.dataset.y;render()}});
+render();
+const {SC,NC,TH,P,SU}=window.GEO;
+const cl=(v,a,b)=>Math.min(b,Math.max(a,v)),TOT=D.T[N-1].reduce((a,b)=>a+b,0),SPH=()=>$('#sp').offsetHeight;
+const off=()=>{['#c','#panel','#zc','#hint','#bar'].forEach(q=>$(q).style.display='none');$('#sp').style.height='0'};
+let R;if(!window.THREE){off();return}
+try{R=new THREE.WebGLRenderer({canvas:$('#c'),antialias:true,alpha:true})}catch(e){off();return}
+const SRC='หมายเหตุ: ขอบเขตแผนที่เป็นแบบย่อโดยประมาณ ไม่ใช่ขอบเขตทางการ';
+const ST=[
+{k:'ระดับ 1 · ประเทศ',t:'ประเทศไทย',d:'77 จังหวัด (รวมกรุงเทพฯ) เลื่อนลงเพื่อซูมเข้าสู่ภาคใต้ที่ไฮไลต์สีฟ้า',kp:[['65,951,210','ประชากรทั้งประเทศ (คน)'],['77','จังหวัด']],s:'ที่มา: กรมการปกครอง ณ 31 ธ.ค. 2567'},
+{k:'ระดับ 2 · ภูมิภาค',t:'ภาคใต้',d:'14 จังหวัดบนคาบสมุทรมลายู ขนาบด้วยทะเลอันดามันและอ่าวไทย สุราษฎร์ธานีอยู่ตอนบนของภาค',kp:[['≈9.24 ล้าน','ประชากรภาคใต้ (คน)'],['14.0%','ของประชากรทั้งประเทศ'],['14','จังหวัด']],s:'ที่มา: ประมาณการกลางปี 2567 สถาบันวิจัยประชากรและสังคม ม.มหิดล (คนละฐานกับตัวเลขระดับประเทศ จึงเทียบสัดส่วนได้เพียงคร่าว ๆ)'},
+{k:'ระดับ 3 · จังหวัด',t:'จังหวัด'+PV,d:'มีเกาะสมุย เกาะพะงัน และเกาะเต่าในอ่าวไทย เลื่อนลงเพื่อเปิดแดชบอร์ดประชากร',kp:[[f(TOT),'ประชากร '+D.mo[N-1]+' (คน)'],[N,'ปีข้อมูล ('+D.yrs[0]+'–'+D.yrs[N-1]+')']],s:'ที่มา: ไฟล์ข้อมูลประชากรรายอายุ (Year_Totals)'}];
+const X=l=>(l-100)*9.88,Y=a=>(a-9)*10;
+R.setPixelRatio(Math.min(devicePixelRatio,2));R.setClearColor(0x000000,0);
+const S=new THREE.Scene(),cam=new THREE.PerspectiveCamera(45,1,.5,600),sun=new THREE.DirectionalLight(0xffffff,.3);
+S.add(new THREE.AmbientLight(0xffffff,.82));sun.position.set(-30,60,40);S.add(sun);
+const C={th:new THREE.Color(0xe6ebf5),dim:new THREE.Color(0xeef2f9),hot:new THREE.Color(0x2f97e8),sth:new THREE.Color(0x7bbcf2),dim2:new THREE.Color(0xc4def6)};
+const M=c=>new THREE.MeshLambertMaterial({color:c});
+function ex(polys,mat){const m=new THREE.Mesh(new THREE.ExtrudeGeometry(polys.map(p=>new THREE.Shape(p.map(q=>new THREE.Vector2(X(q[0]),Y(q[1]))))),{depth:1,bevelEnabled:false}),mat);m.rotation.x=-Math.PI/2;S.add(m);return m}
+function ln(polys,col){const a=[];polys.forEach(p=>p.forEach((q,i)=>{const r=p[(i+1)%p.length];a.push(X(q[0]),0,-Y(q[1]),X(r[0]),0,-Y(r[1]))}));const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(a,3));const l=new THREE.LineSegments(g,new THREE.LineBasicMaterial({color:col,transparent:true}));S.add(l);return l}
+const mTH=ex([TH],M(C.th)),mS=ex([SC],M(C.hot)),mP=ex(SU,M(C.hot)),lTH=ln([TH],0xffffff),lP=ln(SU,0xffffff);
+mTH.scale.z=.5;mS.scale.z=.9;lTH.position.y=.52;
+const LB=[];
+function lab(t,lo,la,lv,c,val){const e=document.createElement('div');e.className='lb '+(c||'');e.innerHTML='<span>'+t+'</span>'+(val?'<em>'+val+'</em>':'')+(/\bp\b/.test(c||'')?'<i></i>':'');$('#lbls').appendChild(e);LB.push({e,x:X(lo),z:-Y(la),lv,y:[.7,1.1,2.2][lv]})}
+lab('ประเทศไทย',101.3,16.4,0,'big','65,951,210 คน');lab('ภาคใต้',100.5,8.7,0,'hot','≈9.24 ล้านคน');lab('ทะเลอันดามัน',96.9,8.5,0,'sea');lab('อ่าวไทย',101.8,10.4,0,'sea');
+P.forEach(p=>lab(p[0],p[1],p[2],1,p[0]===PV?'p hot':'p',p[0]===PV?f(TOT)+' คน':''));lab('กระบี่',99.0,8.15,1,'p');lab('ทะเลอันดามัน',97.7,8.6,1,'sea');lab('อ่าวไทย',101.4,8.8,1,'sea');lab('ภาคใต้',100.9,10.5,1,'big hot','≈9.24 ล้านคน');
+lab(PV,99.25,9.35,2,'big hot',f(TOT)+' คน');[['พังงา',98.4,9.0],['ระนอง',98.55,9.85],['ชุมพร',99.1,10.2],['กระบี่',99.0,8.35],['นครศรีธรรมราช',99.75,8.6]].forEach(a=>lab(a[0],a[1],a[2],2,'p'));lab('อ่าวไทย',100.4,9.9,2,'sea');lab('ทะเลอันดามัน',98.2,9.3,2,'sea');
+const go=i=>scrollTo({top:i/2*(SPH()-innerHeight),behavior:'smooth'});
+const dots=ST.map((a,i)=>{const b=document.createElement('button');b.textContent=i+1;b.title='ระดับ '+(i+1)+' · '+a.t;b.setAttribute('aria-label','ระดับ '+(i+1)+' '+a.t);b.onclick=()=>go(i);$('#zc').appendChild(b);return b});
+function setPanel(i){const p=$('#panel');p.classList.add('sw');setTimeout(()=>{const a=ST[i];$('#k').textContent=a.k.replace(' · ',' › ');$('#t').textContent=a.t;$('#d').textContent=a.d;$('#kp').innerHTML=a.kp.map(x=>'<div><b>'+x[0]+'</b><span>'+x[1]+'</span></div>').join('');$('#s').textContent=a.s+' · '+SRC;p.classList.remove('sw')},220);dots.forEach((d,j)=>{d.classList.toggle('on',j===i);d.setAttribute('aria-current',j===i)})}
+const VW=[[101,13.2,190,.22],[100.2,8.3,80,.3],[99.3,9.2,26,.45]];
+let W,H,tgt=0,s=0,cur=-1,mx=0;const RM=matchMedia('(prefers-reduced-motion:reduce)').matches,v=new THREE.Vector3();
+function rs(){W=innerWidth;H=innerHeight;R.setSize(W,H,false);cam.aspect=W/H;cam.updateProjectionMatrix()}
+addEventListener('resize',rs);rs();
+function onS(){const m=SPH()-innerHeight;tgt=m>0?cl(scrollY/m,0,1)*2:0;$('#hint').style.opacity=scrollY>40?0:1;$('#bar').style.width=tgt/2*100+'%'}
+addEventListener('scroll',onS,{passive:true});onS();
+addEventListener('pointermove',e=>{mx=e.clientX/W*2-1});
+function tick(){requestAnimationFrame(tick);
+ if(scrollY>=SPH())return;
+ s+=(tgt-s)*(RM?1:.07);
+ const i=Math.round(tgt);if(i!==cur){cur=i;setPanel(i)}
+ const i0=Math.min(1,Math.floor(s)),fr=s-i0,e=fr*fr*(3-2*fr),a=VW[i0],b=VW[i0+1],L=k=>a[k]+(b[k]-a[k])*e;
+ const asp=W/H<1?Math.min(1.9,.85*H/W):1,h=L(2)*asp,cx=X(L(0)),cz=-Y(L(1));
+ cam.position.set(cx+mx*h*.04,h,cz+L(3)*h);cam.lookAt(cx,0,cz);
+ const t01=cl(s,0,1),t12=cl(s-1,0,1),base=1.4+.5*t12;
+ mTH.material.color.copy(C.th).lerp(C.dim,t01);
+ mS.material.color.copy(C.hot).lerp(C.sth,t01).lerp(C.dim2,t12);
+ mP.scale.z=base;lP.position.y=base+.03;lTH.material.opacity=.9*(1-t12);
+ LB.forEach(o=>{v.set(o.x,o.y,o.z).project(cam);o.e.style.opacity=v.z<1?cl(1-Math.abs(s-o.lv)*1.8,0,1):0;o.e.style.transform='translate('+(v.x*.5+.5)*W+'px,'+(-v.y*.5+.5)*H+'px) translate(-50%,-100%)'});
+ R.render(S,cam)}
+tick();
+
+})();
+</script>
+</body>
+</html>
