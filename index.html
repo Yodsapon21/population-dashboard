@@ -121,6 +121,14 @@ svg{width:100%;height:auto;display:block}
 #nt.s1 .bar.on{fill:var(--m)}
 #nt.s2 .bar{fill:#f7c7da}
 #nt.s2 .bar.on{fill:var(--w)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+#dl{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:13px;font-weight:700;padding:9px 16px;border:0;border-radius:999px;background:var(--ac);color:#fff;cursor:pointer;white-space:nowrap;box-shadow:0 4px 14px rgba(11,116,229,.3)}
+#dl svg{width:16px;height:16px;flex:none}
+#dl:hover{background:#0963c7}
+#dl:disabled{opacity:.7;cursor:progress}
+#dl:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+@media(max-width:600px){#dl span{display:none}#dl{padding:10px}}
+@media print{#intro,[data-html2canvas-ignore]{display:none!important}.top{position:static}#dash{min-height:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}@page{margin:10mm}}
 @media(prefers-reduced-motion:reduce){#hint{animation:none}}
 @media(max-width:800px){.kg{grid-template-columns:repeat(2,1fr)}.g2,.g2.e{grid-template-columns:1fr}.kc b{font-size:22px}.wrap,.top{padding-left:14px;padding-right:14px}}
 @media(max-width:700px){#panel{left:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));width:calc(100% - 24px);padding:16px 18px}#panel::before{height:84px}#zc{right:10px}#zc button{width:42px;height:42px}#hint{display:none}.lb{font-size:11px}.lb.big{font-size:18px}.lb.big em{font-size:13px}}
@@ -142,7 +150,7 @@ svg{width:100%;height:auto;display:block}
   <div id="sp"></div>
 </div>
 <div id="dash">
-<header class="top"><small>จังหวัดสุราษฎร์ธานี › ประชากรรายอายุ พ.ศ. 2559–2568</small><h1>แดชบอร์ดประชากร ณ <span id="mo"></span></h1></header>
+<header class="top"><div><small>จังหวัดสุราษฎร์ธานี › ประชากรรายอายุ พ.ศ. 2559–2568</small><h1>แดชบอร์ดประชากร ณ <span id="mo"></span></h1></div><button id="dl" data-html2canvas-ignore aria-label="ดาวน์โหลดรายงาน PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg><span>ดาวน์โหลดรายงาน (PDF)</span></button></header>
 <main class="wrap">
 <div class="ys"><label for="ysel">เลือกปี พ.ศ.</label><select id="ysel"></select></div>
 <div class="kg" id="kg"></div>
@@ -160,6 +168,8 @@ svg{width:100%;height:auto;display:block}
 </main>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 /* population-data.js — ข้อมูลประชากรจังหวัดสุราษฎร์ธานี พ.ศ. 2559–2568 (สรุปจากไฟล์ population_dataclean_formatted.xlsx: Data_Clean + Year_Totals)
  * province : ชื่อจังหวัดตามหัวรายงานในไฟล์ต้นฉบับ
@@ -264,6 +274,20 @@ $('#ft').textContent=`ที่มา: ไฟล์ข้อมูลประ�
 }
 document.addEventListener('click',e=>{const r=e.target.closest('[data-y]');if(r){y=+r.dataset.y;render()}});
 render();
+/* ดาวน์โหลดรายงาน: จับภาพทั้งหน้าแดชบอร์ด (ตามปี/เพศที่เลือกอยู่) เป็น PDF หน้าเดียว */
+$('#dl').onclick=async()=>{
+const b=$('#dl'),lb=b.querySelector('span'),t0=lb.textContent;
+if(!window.html2canvas||!window.jspdf){window.print();return}
+b.disabled=true;lb.textContent='กำลังสร้าง PDF…';
+try{
+document.querySelectorAll('#dash svg *').forEach(e=>{const c=getComputedStyle(e);['fill','stroke','stroke-width','font-size','font-weight','font-family','text-anchor','opacity'].forEach(k=>e.style.setProperty(k,c.getPropertyValue(k)))});
+const cv=await html2canvas($('#dash'),{scale:2,useCORS:true,backgroundColor:'#f6f8fc',windowWidth:1200,ignoreElements:n=>n.id==='intro',onclone:d=>{d.querySelector('.top').style.position='static';d.querySelector('#ft').append(' · สร้างรายงานเมื่อ '+new Date().toLocaleString('th-TH'))}});
+const w=cv.width/2,hh=cv.height/2,pdf=new jspdf.jsPDF({orientation:w>hh?'l':'p',unit:'px',format:[w,hh],hotfix:['px_scaling']});
+pdf.addImage(cv.toDataURL('image/jpeg',.95),'JPEG',0,0,w,hh);
+pdf.save('รายงานประชากร-'+PV+'-พ.ศ.'+D.yrs[y]+'.pdf');
+}catch(e){console.error(e);alert('สร้าง PDF ไม่สำเร็จ ลองกด Ctrl+P แล้วเลือก Save as PDF')}
+finally{render();b.disabled=false;lb.textContent=t0}
+};
 const {SC,NC,TH,P,SU}=window.GEO;
 const cl=(v,a,b)=>Math.min(b,Math.max(a,v)),TOT=D.T[N-1].reduce((a,b)=>a+b,0),SPH=()=>$('#sp').offsetHeight;
 const off=()=>{['#c','#panel','#zc','#hint','#bar'].forEach(q=>$(q).style.display='none');$('#sp').style.height='0'};
