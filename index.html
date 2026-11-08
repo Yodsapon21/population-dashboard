@@ -129,6 +129,7 @@ svg{width:100%;height:auto;display:block}
 #dl:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
 @media(max-width:600px){#dl span{display:none}#dl{padding:10px}}
 @media print{#intro,[data-html2canvas-ignore]{display:none!important}.top{position:static}#dash{min-height:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}@page{margin:10mm}}
+.bh .am{text-align:center;color:#000;font-weight:700;white-space:nowrap}
 @media(prefers-reduced-motion:reduce){#hint{animation:none}}
 @media(max-width:800px){.kg{grid-template-columns:repeat(2,1fr)}.g2,.g2.e{grid-template-columns:1fr}.kc b{font-size:22px}.wrap,.top{padding-left:14px;padding-right:14px}}
 @media(max-width:700px){#panel{left:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));width:calc(100% - 24px);padding:16px 18px}#panel::before{height:84px}#zc{right:10px}#zc button{width:42px;height:42px}#hint{display:none}.lb{font-size:11px}.lb.big{font-size:18px}.lb.big em{font-size:13px}}
@@ -171,25 +172,29 @@ svg{width:100%;height:auto;display:block}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
-/* population-data.js — ข้อมูลประชากรจังหวัดสุราษฎร์ธานี พ.ศ. 2559–2568 (สรุปจากไฟล์ population_dataclean_formatted.xlsx: Data_Clean + Year_Totals)
- * province : ชื่อจังหวัดตามหัวรายงานในไฟล์ต้นฉบับ
- * nb       : จำนวนช่องว่างในไฟล์ต้นฉบับที่เติมจากสมการในแถวเดียวกัน (Issue_Log)
- * nf       : จำนวนค่าที่ไม่สอดคล้องกับสมการและถูกแก้ (Issue_Log)
+/* population-data.js — ข้อมูลประชากรจังหวัดสุราษฎร์ธานี พ.ศ. 2559–2568
+ * สรุปจากไฟล์ CSV "population_dataclean_formatted.xlsm - Data_Clean.csv" (ชีต Data_Clean: 10 ปี × 102 แถวอายุ = 1,020 แถว)
+ * ตัวเลขทุกส่วนในแดชบอร์ดรวมจากแถวรายอายุใน CSV นี้ (ไม่ใช้ชีต Year_Totals)
+ * province : ชื่อจังหวัดตามหัวรายงานของไฟล์ต้นฉบับ (CSV ไม่มีคอลัมน์จังหวัด จึงคงตามไฟล์ Excel ชุดก่อนหน้า)
+ * nb       : จำนวนช่องว่างที่เติมจากสมการในแถวเดียวกัน (ตามบันทึก Issue_Log ของไฟล์ Excel ชุดก่อนหน้า ตรวจกับค่าใน CSV ครบทุกช่อง)
+ * nf       : จำนวนค่าในแถวรายอายุที่ไม่สอดคล้องกับสมการและถูกแก้ (ตามบันทึก Issue_Log ตรวจกับค่าใน CSV ครบทุกช่อง)
+ * dup      : แถวอายุซ้ำที่ค่าเหมือนกันทุกช่องและถูกตัดออกจาก Data_Clean = [ปี, กลุ่มอายุ, จำนวนคนในแถวนั้น] (หาจากเลขแถวต้นทางที่ขาดหายใน CSV)
  * yrs, mo  : ปี พ.ศ. และเดือนของข้อมูลแต่ละปี
- * T[i]     : ยอดรวมทางการ (Year_Totals) = [ชายไทย, หญิงไทย, ชายไม่ใช่ไทย, หญิงไม่ใช่ไทย]
+ * T[i]     : [ชายไทย, หญิงไทย, ชายไม่ใช่ไทย, หญิงไม่ใช่ไทย] = ผลรวมของแถวรายอายุในปีนั้น
  * A[i][k]  : กลุ่มอายุ 5 ปี k=0..20 (0–4, 5–9, … 95–99, 100+) = [ชาย, หญิง, ไม่ใช่สัญชาติไทย] */
 window.POP_DATA={
  province:"สุราษฎร์ธานี",
  nb:18,
- nf:5,
+ nf:3,
+ dup:[[2559,"อายุ 10",13794],[2563,"อายุ 40",17234]],
  yrs:[2559,2560,2561,2562,2563,2564,2565,2566,2567,2568],
  mo:["ธันวาคม 2559","ธันวาคม 2560","ธันวาคม 2561","ธันวาคม 2562","ธันวาคม 2563","ธันวาคม 2564","ธันวาคม 2565","ธันวาคม 2566","ธันวาคม 2567","พฤศจิกายน 2568"],
  T:[
-  [523137,536483,2777,2309],  // 2559
+  [516099,529760,2760,2293],  // 2559
   [518680,532829,3312,2759],  // 2560
   [520662,535715,3878,3245],  // 2561
   [522579,537917,4113,3400],  // 2562
-  [530069,547185,4262,3444],  // 2563
+  [521472,538575,4244,3435],  // 2563
   [522815,541537,4534,3578],  // 2564
   [522631,542326,4924,3782],  // 2565
   [522939,543443,5419,3987],  // 2566
@@ -256,10 +261,10 @@ $('#kg').innerHTML=kc('ประชากรรวม (คน)',f(t.p),q?`${t.p>
 +kc('อัตราส่วนเพศ (ชายต่อหญิง 100 คน)',(t.m/t.w*100).toFixed(1),(t.w>t.m?'หญิงมากกว่าชาย ':'ชายมากกว่าหญิง ')+f(Math.abs(t.w-t.m))+' คน','var(--c3)');
 $('#pt').textContent='โครงสร้างประชากรรายกลุ่มอายุ ปี '+yr;
 const rv=[...a.keys()].reverse();
-$('#py').innerHTML='<div class="bh"><span>◀ ชาย</span><span></span><span>หญิง ▶</span></div>'+rv.map(k=>{const[m,w]=a[k],W=v=>`calc((100% - 58px)*${(v/MX).toFixed(3)})`;return `<div class="br"><div class="l"><b>${f(m)}</b><i style="width:${W(m)}"></i></div><span>${GL[k]}</span><div class="r"><i style="width:${W(w)}"></i><b>${f(w)}</b></div></div>`}).join('');
+$('#py').innerHTML='<div class="bh"><span>◀ ชาย</span><span class="am">ช่วงอายุ</span><span>หญิง ▶</span></div>'+rv.map(k=>{const[m,w]=a[k],W=v=>`calc((100% - 58px)*${(v/MX).toFixed(3)})`;return `<div class="br"><div class="l"><b>${f(m)}</b><i style="width:${W(m)}"></i></div><span>${GL[k]}</span><div class="r"><i style="width:${W(w)}"></i><b>${f(w)}</b></div></div>`}).join('');
 $('#sx').innerHTML=rv.map(k=>{const v=a[k][0]/a[k][1]*100,d=Math.min(50,Math.abs(v-100));return `<div class="sr"><span>${GL[k]}</span><div class="tk"><i style="${v>=100?'left':'right'}:50%;width:${d}%;background:${v>=100?'var(--m)':'var(--w)'}"></i></div><b>${v.toFixed(0)}</b></div>`}).join('')+'<div class="ax"><span></span><div><span>← หญิงมากกว่า</span><b>100</b><span>ชายมากกว่า →</span></div><span></span></div>';
 const ps=D.yrs.map((_,i)=>tt(i).p),lo=Math.floor(Math.min(...ps)/1e4)*1e4,hi=Math.ceil(Math.max(...ps)/1e4)*1e4,ly=v=>170-(v-lo)/(hi-lo)*140;
-$('#tr').innerHTML='<svg viewBox="0 0 568 205" role="img" aria-label="ประชากรรวมรายปี">'+[lo,(lo+hi)/2,hi].map(v=>`<line class="gr" x1="40" x2="528" y1="${ly(v)}" y2="${ly(v)}"/><text class="tx" x="34" y="${ly(v)+4}" text-anchor="end">${(v/1e6).toFixed(2)}</text>`).join('')
+$('#tr').innerHTML='<svg viewBox="0 0 568 205" role="img" aria-label="ประชากรรวมรายปี">'+[lo,(lo+hi)/2,hi].map(v=>`<line class="gr" x1="40" x2="528" y1="${ly(v)}" y2="${ly(v)}"/><text class="tx" x="34" y="${ly(v)+4}" text-anchor="end">${(v/1e6).toFixed(3)}</text>`).join('')
 +`<polyline class="ln" points="${ps.map((v,i)=>lx(i)+','+ly(v)).join(' ')}"/>`
 +ps.map((v,i)=>`<circle class="pt${i===y?' on':''}" data-y="${i}" cx="${lx(i)}" cy="${ly(v)}" r="${i===y?7:5}"/><text class="tx" x="${lx(i)}" y="195" text-anchor="middle">${D.yrs[i]}</text>`).join('')
 +`<text class="tx" style="font-weight:600" x="${lx(y)}" y="${ly(ps[y])-12}" text-anchor="middle">${f(ps[y])}</text></svg>`;
@@ -269,8 +274,7 @@ $('#nt').innerHTML='<svg viewBox="0 0 568 205" role="img" aria-label="ประ�
 const CL=['var(--c0)','var(--c1)','var(--c2)'];
 $('#as').innerHTML=D.yrs.map((v,i)=>`<div class="st${i===y?' on':''}" data-y="${i}"><span>${v}</span><div class="sb">${ag(i).map((x,j)=>`<span style="width:${x}%;background:${CL[j]}">${x.toFixed(1)}%</span>`).join('')}</div></div>`).join('');
 $('#ap').textContent=`สัดส่วนอายุ 60 ปีขึ้นไป ${ag(0)[2].toFixed(1)}% ในปี ${D.yrs[0]} และ ${ag(N-1)[2].toFixed(1)}% ในปี ${D.yrs[N-1]} · คลิกแถวเพื่อเลือกปี`;
-const gp=D.yrs.map((v,i)=>[v,tt(i).p-sum(i)]).filter(x=>x[1]);
-$('#ft').textContent=`ที่มา: ไฟล์ข้อมูลประชากรรายอายุ พ.ศ. 2559–2568 (Data_Clean, Year_Totals) · หัวรายงานต้นฉบับระบุจังหวัด${PV} · ตัวเลขรวมใช้ยอดรวมทางการ (Year_Totals) ส่วนกราฟรายอายุรวมจากรายแถว · แก้ด้วยสมการในแถวเดียวกัน ${D.nb+D.nf} ช่อง (เติมช่องว่าง ${D.nb} ช่อง แก้ค่าที่ไม่สอดคล้อง ${D.nf} ช่อง)`+(gp.length?` · ปี ${gp.map(x=>x[0]+' (ต่างกัน '+f(x[1])+' คน)').join(', ')} ผลรวมรายอายุต่ำกว่ายอดรวมทางการ (Data_Clean ตัดแถวซ้ำออก)`:'')+' · ปี 2568 เป็นข้อมูล ณ พฤศจิกายน';
+$('#ft').textContent=`ที่มา: ไฟล์ข้อมูลประชากรรายอายุ พ.ศ. 2559–2568 (ชีต Data_Clean · 102 แถวต่อปี) · หัวรายงานต้นฉบับระบุจังหวัด${PV} · ตัวเลขทุกกราฟรวมจากแถวรายอายุ · แก้ด้วยสมการในแถวเดียวกัน ${D.nb+D.nf} ช่อง (เติมช่องว่าง ${D.nb} ช่อง แก้ค่าที่ไม่สอดคล้อง ${D.nf} ช่อง) · ตัดแถวอายุซ้ำที่ค่าเหมือนกันทุกช่องออก ${D.dup.length} แถว (${D.dup.map(x=>'ปี '+x[0]+' '+x[1]).join(', ')}) ยอดรวมปี ${D.dup.map(x=>x[0]).join(' และ ')} จึงต่ำกว่ายอดรวมในไฟล์ต้นฉบับ ${D.dup.map(x=>f(x[2])).join(' และ ')} คน ตามลำดับ · ปี 2568 เป็นข้อมูล ณ พฤศจิกายน`;
 }
 document.addEventListener('click',e=>{const r=e.target.closest('[data-y]');if(r){y=+r.dataset.y;render()}});
 render();
@@ -297,7 +301,7 @@ const SRC='หมายเหตุ: ขอบเขตแผนที่เป�
 const ST=[
 {k:'ระดับ 1 · ประเทศ',t:'ประเทศไทย',d:'77 จังหวัด (รวมกรุงเทพฯ) เลื่อนลงเพื่อซูมเข้าสู่ภาคใต้ที่ไฮไลต์สีฟ้า',kp:[['65,951,210','ประชากรทั้งประเทศ (คน)'],['77','จังหวัด']],s:'ที่มา: กรมการปกครอง ณ 31 ธ.ค. 2567'},
 {k:'ระดับ 2 · ภูมิภาค',t:'ภาคใต้',d:'14 จังหวัดบนคาบสมุทรมลายู ขนาบด้วยทะเลอันดามันและอ่าวไทย สุราษฎร์ธานีอยู่ตอนบนของภาค',kp:[['≈9.24 ล้าน','ประชากรภาคใต้ (คน)'],['14.0%','ของประชากรทั้งประเทศ'],['14','จังหวัด']],s:'ที่มา: ประมาณการกลางปี 2567 สถาบันวิจัยประชากรและสังคม ม.มหิดล (คนละฐานกับตัวเลขระดับประเทศ จึงเทียบสัดส่วนได้เพียงคร่าว ๆ)'},
-{k:'ระดับ 3 · จังหวัด',t:'จังหวัด'+PV,d:'มีเกาะสมุย เกาะพะงัน และเกาะเต่าในอ่าวไทย เลื่อนลงเพื่อเปิดแดชบอร์ดประชากร',kp:[[f(TOT),'ประชากร '+D.mo[N-1]+' (คน)'],[N,'ปีข้อมูล ('+D.yrs[0]+'–'+D.yrs[N-1]+')']],s:'ที่มา: ไฟล์ข้อมูลประชากรรายอายุ (Year_Totals)'}];
+{k:'ระดับ 3 · จังหวัด',t:'จังหวัด'+PV,d:'มีเกาะสมุย เกาะพะงัน และเกาะเต่าในอ่าวไทย เลื่อนลงเพื่อเปิดแดชบอร์ดประชากร',kp:[[f(TOT),'ประชากร '+D.mo[N-1]+' (คน)'],[N,'ปีข้อมูล ('+D.yrs[0]+'–'+D.yrs[N-1]+')']],s:'ที่มา: ไฟล์ข้อมูลประชากรรายอายุ (Data_Clean)'}];
 const X=l=>(l-100)*9.88,Y=a=>(a-9)*10;
 R.setPixelRatio(Math.min(devicePixelRatio,2));R.setClearColor(0x000000,0);
 const S=new THREE.Scene(),cam=new THREE.PerspectiveCamera(45,1,.5,600),sun=new THREE.DirectionalLight(0xffffff,.3);
